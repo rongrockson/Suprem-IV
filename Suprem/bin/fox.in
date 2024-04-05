@@ -1,0 +1,44 @@
+option quiet
+mode two.dim
+#x dimension
+line x loc=0.0 spacing=0.2  tag=left
+line x loc=1.0 spacing=0.05
+line x loc=2.0 spacing=0.2 tag=right
+#y dimension
+line y loc=0.0 tag=top
+line y loc=1.0 tag=bottom  
+#silicon
+region silicon xlo=left xhi=right ylo=top yhi=bottom
+#exposed surface
+bound exposed xlo=left xhi=right ylo=top yhi=top
+#Comment  Start with <100> Silicon, p doped to 20 ohm resistivity.
+initialize  boron conc=9.0e14 ori=100 
+oxide orient=100 wet lin.h.0=2.428e6  lin.l.0=2.793e4
+#suprem iv default coefficients
+boron silicon Dix.0=0.37 Dip.0=0.72 Dix.E=3.46 Dip.E=3.46
+arsenic silicon Dix.0=8.0 Dim.0=12.8 Dix.E=4.05 Dim.E=4.05
+#Comment  Pad Oxidation.
+method compress init=1.0e-3
+diffuse time=42  temp=950                  dryo2
+deposit nitride thick=0.08 div=1
+deposit photoresist thick=1 
+#Field implant mask at edge of collector
+etch photoresist left  p1.x=1.0
+etch nitride     left  p1.x=1.0
+implant boron energy=100 dose=1e13
+etch photoresist all
+struct out=prefieldox.s
+#Comment Field Ox
+#Use viscous model
+# oxide and nitride parameters from Griffin
+oxide   Vc=425 Vr=12.5 Vd=65 stress.dep=t
+material   oxide   visc.0 = 2.25e14 visc.E = 0.000 visc.x = 0.499 wet
+mater   nitride visc.0=4.3e14 visc.E=0.0
+meth   viscous oxide.rel=1e-2
+diffuse time=18  temp=1000		   argon
+diffuse time=10  temp=1000                 dryo2
+struct out=init.str
+select z=log10(boron)
+struct imagetool=foo.img x.min=-1.0e-3 x.max=3.0e-3 y.min=-1.0e-3 y.max=3.0e-3 z.min=0.0 z.max=1.0 pixelx=300 pixely=150
+plot.2d bound line.bound=2 diamonds x.min=1.0 x.max=1.0 y.min=-1.0 y.max=1.0 
+quit

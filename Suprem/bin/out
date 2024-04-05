@@ -1,0 +1,20 @@
+----- yyparse() ----   "aaaa" 100 "bbbb"
+-------- parse_exp() at 1.0 "aaaa" 100 "bbbb" ------- 
+---------parse_expr() at 1.5 "aaaa" 100 "bbbb"--------
+----- lexical() at 4.5 2000----
+(2000 before reduce 2000,after reduce 01 ) 1
+---------parse_expr() at 1.5  100 "bbbb"--------
+----- lexical() at 1.5 80----
+(80 before reduce 80,after reduce 01 ) 2
+---------parse_expr() at 1.5  "bbbb"--------
+----- lexical() at 4.5 2000----
+(2000 before reduce 2000,after reduce 01 ) 3
+---------parse_expr() at 1.5 --------
+----- lexical() at 1 400----
+(400 before reduce 400,after reduce 400 ) 4
+---------parse_expr() at 1.51 4 200 01 01------
+---- echo()at 1 grammar rule violated in expression
+
+"aaaa" 100 "bbbb"
+grammar rule violated in expression
+

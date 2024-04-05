@@ -1,0 +1,3 @@
+foreach O (100)
+echo  "aaaa" O "bbbb"
+end

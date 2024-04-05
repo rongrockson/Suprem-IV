@@ -1,0 +1,145 @@
+############################################################ \n
+Launching testcase ../examples/exam1/boron.in \n
+SUPREM-IV.GS B.9305
+	(c) 1991-1993 Stanford University
+	(c) 1991 University of Florida
+Reading Models...
+#option quiet
+mode one.dim
+#the vertical definition
+line x loc = 0     spacing = 0.02 tag = top
+line x loc = 0.50  spacing = 0.02
+line x loc = 2.0   spacing = 0.25 tag=bottom
+#the silicon wafer
+region silicon xlo = top xhi = bottom
+#set up the exposed surfaces
+bound exposed  xlo = top  xhi = top
+#calculate the mesh
+init boron conc=1.0e14 line.data
+Lines in the x direction: 
+Number	Location
+     0	0.000000
+     1	0.020000
+     2	0.040000
+     3	0.060000
+     4	0.080000
+     5	0.100000
+     6	0.120000
+     7	0.140000
+     8	0.160000
+     9	0.180000
+    10	0.200000
+    11	0.220000
+    12	0.240000
+    13	0.260000
+    14	0.280000
+    15	0.300000
+    16	0.320000
+    17	0.340000
+    18	0.360000
+    19	0.380000
+    20	0.400000
+    21	0.420000
+    22	0.440000
+    23	0.460000
+    24	0.480000
+    25	0.500000
+    26	0.519945
+    27	0.543547
+    28	0.571477
+    29	0.604530
+    30	0.643644
+    31	0.689931
+    32	0.744707
+    33	0.809528
+    34	0.886237
+    35	0.977013
+    36	1.084436
+    37	1.211559
+    38	1.361996
+    39	1.540020
+    40	1.750693
+    41	2.000000
+Mesh statistics Mesh Creation:
+    Points =   42	Nodes =   43	
+#the pad oxide
+deposit oxide thick=0.075
+Mesh statistics after deposit:
+    Points =   43	Nodes =   45	
+#the uniform boron implant
+implant boron dose=3e14 energy=70 pearson
+#plot the initial profile
+select z=log10(boron)
+plot.1d x.ma=2.0 y.mi=14.0 y.max=20.0
+############################################################ \n
+Launching testcase ../examples/exam2/oed.in \n
+SUPREM-IV.GS B.9305
+	(c) 1991-1993 Stanford University
+	(c) 1991 University of Florida
+Reading Models...
+option quiet
+mode one.dim
+#the vertical definition
+line x loc = 0     spacing = 0.02 tag = top
+line x loc = 1.50  spacing = 0.05
+line x loc = 5.0   spacing = 0.5
+line x loc = 400.0                tag=bottom
+#the silicon wafer
+region silicon xlo = top xhi = bottom
+#set up the exposed surfaces
+bound exposed  xlo = top  xhi = top
+#calculate the mesh
+init boron conc=1.0e14
+#the pad oxide
+deposit oxide thick=0.075
+#the uniform boron implant
+implant boron dose=3e14 energy=70 pearson
+#plot the initial profile
+select z=log10(boron)
+plot.1d x.ma=2.0 y.mi=14.0 y.max=20.0
+############################################################ \n
+Launching testcase ../examples/exam3/oed.in \n
+SUPREM-IV.GS B.9305
+	(c) 1991-1993 Stanford University
+	(c) 1991 University of Florida
+Reading Models...
+estimated first time step 1.767897e-10
+Data 0 0 0 
+Solving            0 +        0.001 =        0.001,      100%, np 73
+Data 1.66667e-05 1.14116 0.999001 
+Solving        0.001 +   0.00217181 =   0.00317181,  217.181%, np 73
+Data 5.28635e-05 1.23489 0.999685 
+Solving   0.00317181 +    0.0105442 =     0.013716,  485.503%, np 73
+Data 0.0002286 1.26412 0.999927 
+Solving     0.013716 +    0.0857599 =    0.0994759,  813.337%, np 73
+Data 0.00165793 1.27887 0.99999 
+Solving    0.0994759 +     0.380331 =     0.479807,  443.484%, np 73
+Data 0.00799678 1.31034 0.999998 
+Solving     0.479807 +      1.11267 =      1.59248,  292.553%, np 73
+Data 0.0265413 1.39119 1 
+Solving      1.59248 +      2.71155 =      4.30403,  243.697%, np 73
+Data 0.0717338 1.5448 1 
+Solving      4.30403 +      7.50304 =      11.8071,  276.707%, np 73
+Data 0.196785 1.81401 1 
+Solving      11.8071 +       23.071 =      34.8781,  307.488%, np 73
+Data 0.581302 2.21682 1 
+Solving      34.8781 +      52.5223 =      87.4003,  227.655%, np 73
+Data 1.45667 2.59746 1 
+Solving      87.4003 +      116.308 =      203.709,  221.446%, np 73
+Data 3.39515 2.89759 1 
+Solving      203.709 +      264.826 =      468.535,  227.693%, np 73
+Data 7.80892 3.09821 1.00005 
+Solving      468.535 +      629.711 =      1098.25,  237.782%, np 73
+Data 18.3042 3.19492 1.00143 
+Solving      1098.25 +      1476.13 =      2574.37,  234.414%, np 72
+Data 42.9062 3.19724 1.02452 
+Solving      2574.37 +      1786.28 =      4360.65,  121.011%, np 71
+Data 72.6775 3.13467 1.09187 
+Solving      4360.65 +      2319.41 =      6680.06,  129.846%, np 71
+Data 94.745 3.07212 1.16452 
+Solving       5684.7 +      2813.17 =      8497.87,  212.468%, np 71
+Data 141.631 2.96849 1.34316 
+Solving      8497.87 +      3114.92 =      11612.8,  110.726%, np 70
+Data 193.547 2.89165 1.53193 
+Solving      11612.8 +      2787.21 =        14400,  89.4795%, np 69
+Data 240 2.83454 1.67415 

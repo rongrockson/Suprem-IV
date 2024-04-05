@@ -1,0 +1,28 @@
+#some set stuff
+set echo
+option quiet
+mode one.dim
+
+#the vertical definition
+line x loc = 0     spacing = 0.02 tag = top
+line x loc = 0.50  spacing = 0.02
+line x loc = 4.0   spacing = 0.25 tag=bottom
+
+#the silicon wafer
+region silicon xlo = top xhi = bottom
+
+#set up the exposed surfaces
+bound exposed  xlo = top  xhi = top
+
+# automatic grid generation for the initial substrate
+initialize phosphorus conc=2e15
+# diffuse boron and drive in
+diffuse temp=950 time=30  boron gas.conc=2e20
+diffuse temp=1050 time=90
+# diffuse phosphorus
+diffuse temp=1050 time=10 phosphorus gas.conc=1e21
+# plot results
+select z=log10(boron) label=log(concentration)
+plot.1d x.min=0.0 x.max=4.0 y.min=15 y.max=21 
+select z=log10(phosphorus)
+plot.1d axis clear line.typ=2 
