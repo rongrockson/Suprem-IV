@@ -1,0 +1,61 @@
+sudo apt update
+sudo apt gcc install
+
+ 1  wsl --ststus # only for wsl systems
+    2  #gcc
+    3  #sudo apt install gcc
+    4  sudo apt update
+    5  sudo apt install gcc
+    6  gcc
+    7  #cd /mnt/e/2nd\ sem/Supreme/
+    cd /home/makshat/supreme/drive-download-20240313T121545Z-001/
+    8  ls
+    9  cd bin
+   10  ./suprem4
+   # if permission not there do chmod 777 suprem4
+
+
+   14  ./Xtest2
+   15  ./suprem4
+   16  \rm 2.cross
+   19  cd ../src
+
+   21  #sudp apt-get make
+   22  #sudo apt-get make
+   23  sudo apt install make
+   24  #make clean
+   25  #make install
+   26  sudo apt-get install gcc-multilib
+   27  #make install
+   28  #sudo apt-get install f77
+   29  #sudo apt-get install g77
+   30  #sudo apt-get install fortran77
+   31  sudo apt-get install fort77
+   32  #make install
+   33  apt search Xlib.h
+   34  sudo apt install libx11-dev
+   35  #make install
+       sudo apt install libxt-dev
+       sudo apt install libxaw7-dev
+   36  sudo apt install libx11-dev:i386
+   37  #make install
+   38  
+   39  #make install
+   40  
+   41  #make install
+   42  #sudo apt install libx11-dev:i386
+   43  #dpkg --add-architecture i386
+   44  sudo dpkg --add-architecture i386
+   45  sudo apt update
+   46  sudo apt install libx11-dev:i386
+   47  sudo apt install libxt-dev:i386
+   48  sudo apt install libxaw7-dev:i386
+   49  make clean
+   50  make -j8 install
+   51  cd ../bin
+   52  #./suprem4
+   53  ./suprem4 ../examples/exam2/oed.in
+   54  ls
+   55  gs
+   56  sudo apt install ghostscript
+   57  gs exam2.ps
