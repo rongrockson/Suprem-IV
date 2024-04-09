@@ -21,12 +21,12 @@ deposit nitride thick=.3
 method fermi init=1e-5
 
 diffuse time=.001 temp=750 argon 
-	select z=log10(silicon)	
-	plot.1d x.min=0.0 x.ma=2.0 y.mi=14.0 y.max=20.0 line.type=1 
+#	select z=log10(silicon)
+	select z=log10(isilicon)
+	plot.1d x.min=0.0 x.ma=2.0 y.mi=14.0 y.max=20.0 line.type=1
 	select z=log10(electrons)	
 	plot.1d x.min=0.0 x.ma=2.0 y.mi=14.0 y.max=20.0 cle=f axi=f line.type=2
 	select z=log10(abs(doping))	
 	plot.1d x.min=0.0 x.ma=2.0 y.mi=14.0 y.max=20.0 cle=f axi=f line.type=3
-
 quit
 
